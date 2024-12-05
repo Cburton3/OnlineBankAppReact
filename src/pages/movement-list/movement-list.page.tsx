@@ -3,6 +3,7 @@ import React from "react";
 import { MovementVm } from "./movement-list.vm";
 import classes from "./movement-list.page.module.css";
 import { MovementListTableComponent } from "./components/movement-list-table.components";
+import { AccountVm } from "../account-list/account-list.vm";
 
 const mockMovementListData: MovementVm[] = [
   {
@@ -35,6 +36,7 @@ const mockMovementListData: MovementVm[] = [
 ];
 
 export const MovementListPage: React.FC = () => {
+  const [accountList] = React.useState<AccountVm[]>([]);
   const [movementList] = React.useState<MovementVm[]>(mockMovementListData);
 
   return (
@@ -47,9 +49,15 @@ export const MovementListPage: React.FC = () => {
             <h2>1490 €</h2>
           </div>
         </div>
+        {/* {pathname.startsWith(routesPrefixes.accountList) ? classes.selected
+          : ''
+        } */}
         <div className={classes.subHeader}>
-          <h3>Alias: Gastos mes `${mockMovementListData.description}`[placeholder]</h3>
-          <h3> `IBAN: [placeholder]`</h3>
+          <h3>Alias:
+             {`${movementList.description}`} 
+            
+            Gastos mes [placeholder]</h3>
+          <h3>IBAN {`${accountList.iban}`}</h3>
         </div>
         <MovementListTableComponent movementList={movementList}></MovementListTableComponent>
       </div>

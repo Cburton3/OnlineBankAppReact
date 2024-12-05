@@ -38,7 +38,9 @@ export const AccountListItemComponent: React.FC<Props> = (props) => {
             <span className={`${classes.dataCell} ${classes.bold}`}><Link to={generatePath(appRoutes.movements, {id: accountItem.id})}>
             {accountItem.iban}
             </Link></span>
+
             <span className={classes.dataCell}>{accountItem.name}</span>
+            
             <span className={`${classes.dataCell} ${classes.alignRight}`}>{accountItem.balance}</span>
             <span className={`${classes.dataCell} ${classes.alignRight}`}>{accountItem.lastTransaction.toLocaleDateString()}</span>
 

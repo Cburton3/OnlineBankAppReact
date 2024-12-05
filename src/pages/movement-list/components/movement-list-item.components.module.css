@@ -1,6 +1,6 @@
 .row {
     display: grid;
-    grid-template-columns: 30% 12% repeat(2, 17%) 1fr;
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
     gap: 1px;
 }
 
@@ -15,16 +15,15 @@
     align-self: center;
 }
 
-/* .data-cell a {
-    text-decoration: underline;
-    color: var(--secondary_color);
-} */
-
 .align-right {
     text-align: right;
 }
 
 .bold {
     font-weight: 600;
+}
+
+.red {
+    color: red;
 }
 
