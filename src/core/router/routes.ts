@@ -12,3 +12,5 @@ export const appRoutes = {
     transfer: routesPrefixes.transfer,
     transferFromAccount: `${routesPrefixes.transfer}/:id`
 };
+
+//why if i change it to /movement/:AcountId can i not access teh other accounts?

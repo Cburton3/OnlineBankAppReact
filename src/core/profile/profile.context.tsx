@@ -29,6 +29,7 @@ export const ProfileProvider : React.FC<Props> = (props) => {//ProfileProvider w
         >
             {children}
         </ProfileContext.Provider> //This pattern allows other components (children of profile provider) to consume the ProfileContext
+        //this is explained in 05-app-cuentas-layout.md pg 15
     )
 }
 

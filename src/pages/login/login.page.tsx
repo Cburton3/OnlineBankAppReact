@@ -13,13 +13,13 @@ import { useProfileContext } from "@/core/profile";
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
-  const {setUserProfile} = useProfileContext()
+  const {setUserProfile} = useProfileContext() // this access' setUserProfile and updates the userName when the user types their email
 
   const handleSubmit = (credentials: Credentials) => {
     const apiCredentials = mapCredentialsFromVmToApi(credentials);
     isValidLogin(apiCredentials).then((isValid) => {
       if (isValid) {
-        setUserProfile(credentials.user);
+        setUserProfile(credentials.user);//this is connected to profile.Context page and what connected the two
         navigate(appRoutes.accountList);
       } else {
         alert("Username or password incorrect, use: admin@email.com / test");

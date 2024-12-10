@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes,  } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes,  } from "react-router-dom";
 import { AccountListPage, AccountPage, LoginPage, MovementListPage, TransferPage } from "@/pages";
 import { appRoutes } from "./routes";
 
@@ -13,6 +13,7 @@ export const Router = () => {
             <Route path={appRoutes.movements} element={<MovementListPage/>}></Route>
             <Route path={appRoutes.transfer} element={<TransferPage/>}></Route>
             <Route path={appRoutes.transferFromAccount} element={<TransferPage/>}></Route>
+            <Route path="*" element={<Navigate to="/account-list" replace />} />
         </Routes>
         </BrowserRouter>
     )

@@ -30,7 +30,7 @@ export const LoginFormComponent: React.FC<Props> = (props) => {
       ...credentials,
       [e.target.name]: e.target.value //by using the [] -sq bracket notation- you can create or update object properties. whats inside is used as a key,
       //when the usernaemfield is edited, e.target.name will be username and the property that corresponds to the name value (username) in the credentials object is updated with the new value so If e.target.name is "username" and e.target.value is "JohnDoe", this translates to:
-      //username: "JohnDoe" so we not saying the same we placing values/ RE target.value is what is typed in input feild
+      //username: "JohnDoe" so we not saying the same we placing values/ RE target.value is what is typed in input field
     });
   };
 
