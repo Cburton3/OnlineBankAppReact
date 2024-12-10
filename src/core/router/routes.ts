@@ -1,7 +1,8 @@
 export const routesPrefixes = {
     accountList: '/account-list',
     transfer: '/transfer',
-    movements: '/movement/:id' //need to make the id dynamic somewhere
+    movements: '/movement/:id',
+    // movementId: '/movement'
 };
 
 export const appRoutes = {
@@ -9,6 +10,7 @@ export const appRoutes = {
     accountList: routesPrefixes.accountList,
     editAccount: '/edit-account/:id',
     movements: routesPrefixes.movements,
+    // movementId: routesPrefixes.movementId,
     transfer: routesPrefixes.transfer,
     transferFromAccount: `${routesPrefixes.transfer}/:id`
 };

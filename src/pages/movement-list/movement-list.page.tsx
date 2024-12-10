@@ -7,7 +7,6 @@ import { AccountVm } from "../account-list/account-list.vm";
 import { getMovements } from "./api";
 import { mapMovementListFromApiToVm } from "./movement-list.mapper";
 import { useParams } from "react-router-dom";
-import { AccountListPage } from "../account-list";
 import { getAccountList } from "../account-list/api";
 import { mapAccountListFromApiToVm } from "../account-list/account-list.mapper";
 
