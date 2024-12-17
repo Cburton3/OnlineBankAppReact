@@ -43,30 +43,36 @@ import { mapAccountListFromApiToVm } from "../account-list/account-list.mapper";
 export const MovementListPage: React.FC = () => {
   // const [accountId] = React.useState<AccountVm[]>([]);
   const [accountList, setAccountList] = React.useState<AccountVm[]>([]);
-  
+
   const [movementList, setMovementList] = React.useState<MovementVm[]>([]);
-  const {  id } = useParams<{ id: string }>(); // Extract accountId from URL
+  const { id } = useParams<{ id: string }>(); // Extract accountId from URL
 
   React.useEffect(() => {
     if (id) {
       getMovements(id)
-      .then((result) => setMovementList(mapMovementListFromApiToVm(result)))
-      .catch((error) => console.log('Error fetching movements:', error));
+        .then((result) => setMovementList(mapMovementListFromApiToVm(result)))
+        .catch((error) => console.log("Error fetching movements:", error));
     }
   }, [id]); //can put accountId here to Re-run effect when accountId changes
 
-  if(!id) {
-    return <div className={classes.errorMessage}>Invalid Account ID</div>
+  if (!id) {
+    return <div className={classes.errorMessage}>Invalid Account ID</div>;
   }
 
   React.useEffect(() => {
     //we need to use use effect here as we are acccessing shit outside of the component scope
     getAccountList()
-    .then((result) => setAccountList(mapAccountListFromApiToVm(result)))
-    .catch((error) => console.log('Error fetching account list:', error))
+      .then((result) => setAccountList(mapAccountListFromApiToVm(result)))
+      .catch((error) => console.log("Error fetching account list:", error));
   }, []);
 
-  const selectedAccount = accountList.find((account) => account.id === id)
+  React.useEffect(() => {
+    getAccountList().then((result) =>
+      setAccountList(mapAccountListFromApiToVm(result))
+    );
+  }, []);
+
+  const selectedAccount = accountList.find((account) => account.id === id);
   //selectedAccount holds the account object that matches the ID.
 
   return (
@@ -76,19 +82,19 @@ export const MovementListPage: React.FC = () => {
           <h1>Balance and recent transactions</h1>
           <div className={classes.rightContainer}>
             <p>AVAILABLE BALANCE</p>
-            <h2>{selectedAccount ? selectedAccount.balance : 'Balance not found'} €</h2>
+            <h2>
+              {selectedAccount ? selectedAccount.balance : "Balance not found"}{" "}
+              €
+            </h2>
           </div>
         </div>
-        {/* {pathname.startsWith(routesPrefixes.accountList) ? classes.selected
-          : ''
-        } */}
+
         <div className={classes.subHeader}>
           <h3>
-            Alias: {selectedAccount ? selectedAccount.name : 'Alias not found'}
-          
+            Alias: {selectedAccount ? selectedAccount.name : "Alias not found"}
           </h3>
           <h3>
-            IBAN: {selectedAccount ? selectedAccount.iban : 'Iban not found'}
+            IBAN: {selectedAccount ? selectedAccount.iban : "Iban not found"}
           </h3>
         </div>
         <MovementListTableComponent
@@ -101,7 +107,6 @@ export const MovementListPage: React.FC = () => {
     </AppLayout>
   );
 };
-
 
 //issues
 /**
