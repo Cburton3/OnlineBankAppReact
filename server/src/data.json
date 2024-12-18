@@ -108,5 +108,17 @@
       "accountId": "3"
     }
   ],
-  "transfer": []
+  "transfer": [
+    {
+      "accountId": "1",
+      "iban": "ES9121000418450200051332",
+      "name": "Your mum",
+      "amount": "200",
+      "concept": "servicios realizados",
+      "notes": "",
+      "transferDate": "Wed Dec 18 2024",
+      "realTransferDate": "",
+      "id": 1
+    }
+  ]
 }

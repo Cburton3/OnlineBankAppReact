@@ -11,3 +11,5 @@ export const mapAccountListFromApiToVm = (
         balance: account.balance.toString(),
         lastTransaction: new Date(account.lastTransaction),
     }));
+
+    //this is like changing the apimodel format to the AccountVm format
