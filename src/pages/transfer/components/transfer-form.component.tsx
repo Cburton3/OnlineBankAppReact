@@ -7,6 +7,7 @@ import {
   TransferVm
 } from "../transfer.vm";
 import { validateForm } from "../validations";
+import classes from "./transfer-form.component.module.css";
 
 interface Props {
   accountList: AccountVm[];
@@ -19,7 +20,7 @@ export const TransferFormComponent: React.FC<Props> = (props) => {
     createEmptyTransferVm()
   );
 
-  const [error, setErrors] = React.useState<TransferError>(
+  const [errors, setErrors] = React.useState<TransferError>(
     createEmptyTransferError()
   );
 
@@ -45,73 +46,99 @@ export const TransferFormComponent: React.FC<Props> = (props) => {
 
   return (
     <div>
-      <h2>Transfer</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Select account</label>
-          <select
-            name="accountId"
-            onChange={handleFieldChange}
-            // onCHange  is a React event handler that triggers every time a user types into an input field or selects an option in a dropdown
-            // It allows you to capture what the user is typing or selecting immediately as it happens.
-            //so it listens for changes in input field and calls the handleFieldChange fx
-            value={transfer.accountId}
-          >
-            <option value="">Select an account</option>
+        <div className={classes.formContainer}>
+          <div>
+            <label>Select account</label>
+            <select
+              name="accountId"
+              onChange={handleFieldChange}
+              // onCHange  is a React event handler that triggers every time a user types into an input field or selects an option in a dropdown
+              // It allows you to capture what the user is typing or selecting immediately as it happens.
+              //so it listens for changes in input field and calls the handleFieldChange fx
+              value={transfer.accountId}
+              className={classes.large}
+            >
+              <option value="">Select an account</option>
+              {/* //22:50 */}
 
-            {accountList.map((account) => (
-              <option key={account.id} value={account.id}>
-                {/* key={account.id} is specific to React and allows it to id each element. its to link with the html elements and gives each a 'key'.
+              {accountList.map((account) => (
+                <option key={account.id} value={account.id}>
+                  {/* key={account.id} is specific to React and allows it to id each element. its to link with the html elements and gives each a 'key'.
 
                 value={account.id} (HTML) it sets what is submitted when user chooses an option. Ie account.id becomes the value of the select element when the user selects this. Its sets the value to what the user has chosen*/}
-                {account.alias}{" "}
-                {/* this is the only visible part as its between the tags*/}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Please introduce IBAN:</label>
-          <input type="text" name="iban" onChange={handleFieldChange} />
-        </div>
-        <div>
-          <label>Beneficiary:</label>
-          <input name="name" onChange={handleFieldChange} />
-        </div>
-        <div>
-          <label>Amount:</label>
-          <input type="number" name="amount" onChange={handleFieldChange} />
-        </div>
-        <div>
-          <label>Concept:</label>
-          <input name="concept" onChange={handleFieldChange} />
-        </div>
-        <div>
-          <label>Observations</label>
-          <input name="notes" onChange={handleFieldChange} />
-        </div>
-        <div>
-          <p>
-            In order for the transfer to be made on a date other than today's
-            date, please indicate the date of transfer.
-          </p>
+                  {account.alias}{" "}
+                  {/* this is the only visible part as its between the tags*/}
+                </option>
+              ))}
+            </select>
+            <p className={classes.error}>{errors.accountId}</p>
+          </div>
           <div>
-            <label>Transfer date:</label>
+            <label>Please introduce IBAN:</label>
             <input
-              name="realDateTransfer"
+              type="text"
+              name="iban"
               onChange={handleFieldChange}
-              type="date"
+              className={classes.large}
             />
+            <p className={classes.error}>{errors.iban}</p>
           </div>
-        </div>
-        <div>
-          <p>Enter an email address to notify the beneficiary:</p>
           <div>
-            <label>Beneficiary's email address:</label>
-            <input type="text" name="email" onChange={handleFieldChange} />
+            <label>Beneficiary:</label>
+            <input
+              name="name"
+              onChange={handleFieldChange}
+              className={classes.large}
+            />
+            <p className={classes.error}>{errors.name}</p>
+          </div>
+          <div>
+            <label>Amount:</label>
+            <input type="number" name="amount" onChange={handleFieldChange} className={classes.small}/>
+            <p className={classes.error}>{errors.amount}</p>
+          </div>
+          <div>
+            <label>Concept:</label>
+            <input name="concept" onChange={handleFieldChange} className={classes.large}/>
+            <p className={classes.error}>{errors.concept}</p>
+          </div>
+          <div>
+            <label>Observations</label>
+            <input name="notes" onChange={handleFieldChange} className={classes.large}/>
+            <p className={classes.error}>{errors.notes}</p>
           </div>
         </div>
-        <button type="submit">MAKE TRANSFER</button>
+        <div className={classes.formContainer}>
+          <div>
+            <p>
+              In order for the transfer to be made on a date other than today's
+              date, please indicate the date of transfer.
+            </p>
+            <div>
+              <label>Transfer date:</label>
+              <input
+                name="realDateTransfer"
+                onChange={handleFieldChange}
+                type="date"
+              />
+              <p className={classes.error}>{errors.realDateTransfer}</p>
+            </div>
+          </div>
+        </div>
+        <div className={classes.formContainer}>
+          <div>
+            <p>Enter an email address to notify the beneficiary:</p>
+            <div>
+              <label>Beneficiary's email address:</label>
+              <input type="text" name="email" onChange={handleFieldChange} className={classes.large}/>
+              <p className={classes.error}>{errors.email}</p>
+            </div>
+          </div>
+        </div>
+        <button type="submit" className={classes.button}>
+          MAKE TRANSFER
+        </button>
       </form>
     </div>
   );
