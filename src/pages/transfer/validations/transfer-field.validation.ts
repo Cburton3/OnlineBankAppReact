@@ -13,11 +13,10 @@ import {
   INVALID_AMOUNT_MESSAGE,
   INVALID_EMAIL_MESSAGE,
   INVALID_IBAN_MESSAGE,
-  INVALID_REAL_DATE_TRANSFER_MESSAGE,
+  INVALID_REAL_DATE_TRANSFER_MESSAGE
 } from "@/common/validations/validation.const";
+
 import { FieldValidationResult } from "@/common/validations/validation.model";
-
-
 
 export const validateIBANField = (value: string): FieldValidationResult => {
   if (!isStringValueProvided(value)) {
@@ -70,7 +69,7 @@ export const validateRealDateTransferField = (
   value?: Date
 ): FieldValidationResult => {
   if (!isValueNotNullOrUndefined(value)) {
-    return buildValidationSucceeded();
+    return buildRequiredFieldValidationFailedResponse(); //check this cos i changed it from 'buildValidationSucceeded()'
   }
   if (value && !isDateAfterToday(value)) {
     //issue here is that fx can only handles dates, not dates or undefined. Need to ensure a valid date before passing to fx so we check if its not null or undefined simply by putting if (value) and in this case && as fist it checks if value exists then it runs the fx

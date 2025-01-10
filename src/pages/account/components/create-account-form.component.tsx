@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./create-account.component.module.css";
-import { AccountVm, createEmptyAccountVm } from "../create-account.vm";
+import { AccountVm, CreateAccountError, createEmptyAccountVm, createEmptyCreateAccountError } from "../create-account.vm";
+import { validateForm } from "../validations/create-account-form.validation";
 
 interface Props {
   onAccountCreation: (accountInfo: AccountVm) => void;
@@ -15,8 +16,14 @@ export const CreateAccountComponent: React.FC<Props> = (props) => {
     createEmptyAccountVm()
   );
 
+  const [errors, setErrors] = React.useState<CreateAccountError>(
+    createEmptyCreateAccountError()
+  );
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formValidationResult = validateForm(newAccount);
+    setErrors(formValidationResult.errors)
     onAccountCreation(newAccount);
   };
 
@@ -42,7 +49,7 @@ export const CreateAccountComponent: React.FC<Props> = (props) => {
               <option value="2">Saving Account</option>
               <option value="3">Trading Account</option>
             </select>
-            <p className={classes.error}>{/* {errors.accountId} */}</p>
+            <p className={classes.error}>{errors.type}</p>
           </div>
           <div>
             <label>Alias:</label>
@@ -52,7 +59,7 @@ export const CreateAccountComponent: React.FC<Props> = (props) => {
               onChange={handleFieldChange}
               className={classes.medium}
             />
-            <p className={classes.error}>{/* {errors.iban} */}</p>
+            <p className={classes.error}>{errors.name}</p>
           </div>
         </div>
         <button type="submit" className={classes.button}>

@@ -7,3 +7,13 @@ export interface AccountVm {
     type: '',//this is a number string
     name: ''//this is the alias
   });
+
+  export interface CreateAccountError {
+    type: string;
+    name: string;
+  }
+
+  export const createEmptyCreateAccountError = (): CreateAccountError => ({
+    type: '',
+    name: ''
+  })

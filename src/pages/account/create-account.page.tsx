@@ -24,7 +24,6 @@ export const CreateAccountPage: React.FC = () => {
         navigate(appRoutes.accountList);
       } else {
         alert('Unable to create account')
-        navigate(appRoutes.accountList)
       }
     });
   };

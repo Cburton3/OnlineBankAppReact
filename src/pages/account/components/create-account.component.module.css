@@ -39,3 +39,9 @@ label {
   .medium {
     width: 200px;
   }
+
+  .error {
+    color: var(--error_color);
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+  }
