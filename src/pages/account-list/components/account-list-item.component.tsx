@@ -21,7 +21,7 @@ export const AccountListItemComponent: React.FC<Props> = (props) => {
         switch(e.target.value) {
             case ACTION_TRANSFER:
                 navigate(
-                    generatePath(appRoutes.transferFromAccount, {id: accountItem.id})
+                    generatePath(appRoutes.transferFromAccount, {id: accountItem.id})//re id is being passed as a prop from the table page into the list RC
                 );
                 break;
                 case ACTION_MOVEMENTS:
@@ -43,6 +43,7 @@ export const AccountListItemComponent: React.FC<Props> = (props) => {
             
             <span className={`${classes.dataCell} ${classes.alignRight}`}>{accountItem.balance}</span>
             <span className={`${classes.dataCell} ${classes.alignRight}`}>{accountItem.lastTransaction.toLocaleDateString()}</span>
+            {/* unlike in movement, here we already have a date object so only need toLocalestring(). It was turned into a date obj in the mapper */}
 
             <span className={`${classes.dataCell} ${classes.selectContainer}`}>
                 <select className={classes.select}

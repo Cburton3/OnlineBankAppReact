@@ -7,6 +7,8 @@ import classes from "./account-list.page.module.css";
 import { AccountListTableComponent } from "./components";
 import { getAccountList } from "./api";
 import { mapAccountListFromApiToVm } from "./account-list.mapper";
+import { appRoutes } from "@/core/router";
+import { Link } from "react-router-dom";
 
 // const mockAccountListData: AccountVm[] = [
 //   {
@@ -38,7 +40,7 @@ export const AccountListPage: React.FC = () => {
   React.useEffect(() => {
     //we need to use use effect here as we are acccessing shit outside of the component scope
     getAccountList().then((result) =>
-      setAccountList(mapAccountListFromApiToVm(result))
+      setAccountList(mapAccountListFromApiToVm(result))//the maps makes it readable to our fx and the set accountlist upates the accoutn list with the results
     );
   }, []); //teh empty [] so that exe only once
 
@@ -47,10 +49,11 @@ export const AccountListPage: React.FC = () => {
       <div className={classes.root}>
         <div className={classes.headerContainer}>
           <h1>My Accounts</h1>
-          <button>Add New Account</button>
+          <button>
+            <Link to={appRoutes.createAccount}>Add New Account</Link></button>
         </div>
         <AccountListTableComponent
-          accountList={accountList}
+          accountList={accountList} //first accountList comes from table component where there is an interface with props
         ></AccountListTableComponent>
         {/* accountList here is the CURRENT state var  declared in parent and is being passe as a prop to the table component
         The parent component (AccountListPage) is passing the accountList state as a prop to the AccountListTableComponent child component. */}

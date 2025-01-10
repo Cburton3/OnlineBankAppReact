@@ -22,3 +22,4 @@ export const mapTransferFromVmToApi = (//this is putting the Vm UI info back int
   realTransferDate: transfer.realDateTransfer?.toDateString() ?? '',
   //as the api model is all strings, we need to convert to a date
 });
+//email is part of Vm but not on api so we dont include

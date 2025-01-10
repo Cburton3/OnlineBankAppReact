@@ -14,6 +14,7 @@ export const MovementListItemComponent: React.FC<Props> = (props) => {
 
             <span className={classes.dataCell}>
                 {new Date(movementItem.transaction).toLocaleDateString()}
+                {/* unlike in accounts, these are NOT date objects but strings. WE did not change it into a date obj in the mapper */}
             </span>
             <span className={classes.dataCell}>
                 {new Date (movementItem.realTransaction).toLocaleDateString()}

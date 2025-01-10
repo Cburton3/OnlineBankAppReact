@@ -1,4 +1,5 @@
-import { FormValidationResult, TransferVm } from "../transfer.vm";
+import { FormValidationResult } from "@/common/validations/validation.model";
+import { TransferError, TransferVm } from "../transfer.vm";
 import {
   validateAccountIdField,
   validateNameField,
@@ -10,7 +11,7 @@ import {
   validateIBANField
 } from "./transfer-field.validation";
 
-export const validateForm = (transfer: TransferVm): FormValidationResult => {
+export const validateForm = (transfer: TransferVm): FormValidationResult<TransferError> => {//as this was now generic we have to spec the type with <>
   const fieldValidationResults = [
     validateAccountIdField(transfer.accountId),
     validateIBANField(transfer.iban),

@@ -4,7 +4,7 @@ import classes from './header.component.module.css';
 import {useProfileContext} from '@/core/profile';
 
 export const HeaderComponent: React.FC = () => {
-  const {userName} = useProfileContext();
+  const {userName} = useProfileContext();//allows access of userName without having to call props
   
   return (
     <header className={classes.header}>

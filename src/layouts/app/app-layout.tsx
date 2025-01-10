@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const AppLayout: React.FC<Props> = (props) => {
-  const { children } = props;
+  const { children } = props; //this is just how to do the layout
 
   return (
     <>

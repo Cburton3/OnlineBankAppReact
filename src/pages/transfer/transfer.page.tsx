@@ -5,6 +5,7 @@ import { TransferFormComponent } from "./components";
 import classes from './transfer.page.module.css';
 import { getAccountList, saveTransfer } from "./api";
 import { mapAccountFromApiToVm, mapTransferFromVmToApi } from "./transfer.mapper";
+import { useParams } from "react-router-dom";
 
 // const accountListMock: AccountVm[] = [
 //   { id: "1", alias: "Cuenta principal", iban: "ES91 2100 0418 4502 0005 1332" },
@@ -14,7 +15,8 @@ import { mapAccountFromApiToVm, mapTransferFromVmToApi } from "./transfer.mapper
 
 export const TransferPage: React.FC = () => {
   const [accountList, setAccountList] = React.useState<AccountVm[]>([]);
-  //as the mock data is passed from the setAccountList and setAccoutList updates accountList, the mockdata becomes the account list. Get it? good!
+  const {id} = useParams<{id: string}>(); //useParams gets the id from the url
+  //as the mock data/api data is passed from the setAccountList and setAccoutList updates accountList, the mockdata becomes the account list. Get it? good!
 
   React.useEffect(() => {//used cos the mock is outside the component
     getAccountList().then((accountListApi) => {//accountListApi would be the 'data'
@@ -40,10 +42,14 @@ export const TransferPage: React.FC = () => {
       <div className={classes.container}>
         <h1 className={classes.title}>National Transfers</h1>
       <TransferFormComponent 
-      accountList={accountList}
+      accountList={accountList}//all 3 being passed as props
       onTransfer={handleTransfer}
+      defaultAccountId = {id} //makes the default id the one that was clicked back on account page. 
       ></TransferFormComponent>
       </div>
     </AppLayout>
   );
 };
+
+
+//How does the option value get calc to display whats there anyway?

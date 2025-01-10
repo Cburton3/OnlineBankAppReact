@@ -3,7 +3,7 @@ import {
   isPositiveNumber,
   isDateAfterToday,
   isEmailWellFormed,
-  isStringValueFilledOut,
+  isStringValueProvided,
   isValueNotNullOrUndefined
 } from "./plain.validation";
 
@@ -47,7 +47,7 @@ describe("plain.validation", () => {
       const field = "test";
 
       // Act
-      const result = isStringValueFilledOut(field);
+      const result = isStringValueProvided(field);
 
       // Assert
       expect(result).toBeTruthy();
@@ -58,7 +58,7 @@ describe("plain.validation", () => {
       const field = "";
 
       // Act
-      const result = isStringValueFilledOut(field);
+      const result = isStringValueProvided(field);
 
       // Assert
       expect(result).toBeFalsy();

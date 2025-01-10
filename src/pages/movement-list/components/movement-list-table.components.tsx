@@ -5,7 +5,7 @@ import { MovementListItemComponent } from "./movement-list-item.component";
 
 
 interface Props {
-  movementList: MovementVm[];
+  movementList: MovementVm[]; //this var is given chicha in movement list page in RC
 }
 
 export const MovementListTableComponent: React.FC<Props> = (props) => {

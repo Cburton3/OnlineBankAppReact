@@ -11,11 +11,15 @@ import classes from "./transfer-form.component.module.css";
 
 interface Props {
   accountList: AccountVm[];
-  onTransfer: (transferInfo: TransferVm) => void; //this specifies the type of fx property. Its means the fx doesnt not return a value
+  onTransfer: (transferInfo: TransferVm) => void; //this specifies the type of fx property. Its means the fx doesnt return a value
+  defaultAccountId?: string; 
+  //This allows the dropdown to show the pre-selected account if defaultAccountId is given or leave it unselected otherwise.
+  //its an optional props so if user enters this page independandly, it isent used.
+  //it preselects an account with the id of the account the user pressed 
 }
 
 export const TransferFormComponent: React.FC<Props> = (props) => {
-  const { accountList, onTransfer } = props;
+  const { accountList, onTransfer, defaultAccountId } = props; //need to do this to get the props into the fx
   const [transfer, setTransfer] = React.useState<TransferVm>(
     createEmptyTransferVm()
   );
@@ -23,6 +27,13 @@ export const TransferFormComponent: React.FC<Props> = (props) => {
   const [errors, setErrors] = React.useState<TransferError>(
     createEmptyTransferError()
   );
+
+  React.useEffect(() => {
+    setTransfer({
+      ...transfer,//make a copy so that next transfer doesnt have anything to do with previous
+      accountId: defaultAccountId ?? '',//account id comes from transfer(VM). youre saying set the id number from the URL (transferpage) to the accountId
+    })
+  }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     //when you click the button
@@ -35,13 +46,13 @@ export const TransferFormComponent: React.FC<Props> = (props) => {
   };
 
   const handleFieldChange = (
-    e: //info on the even(change in (specific) input field)
+    e: //info on the event( the change in (specific) input field)
     React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
   ) => {
     setTransfer({ ...transfer, [e.target.name]: e.target.value });
-    // e.target.name: dynamically updates the property whose name matches the name attribute of the form field triggering the event (looks for input's name where  user types as works for whole form not just this button/input)
+    // e.target.name: dynamically updates the property whose name matches the name attribute of the form field triggering the event (looks for input's name where  user types. Works for whole form not just this button/input)
 
-    // e.target.value: assigns the new value to the respective property. (what user types)
+    // e.target.value: assigns the new value to the respective property. Makes what is typed and attaches it to WHERE it is typed
   };
 
   return (
@@ -56,8 +67,10 @@ export const TransferFormComponent: React.FC<Props> = (props) => {
               // onCHange  is a React event handler that triggers every time a user types into an input field or selects an option in a dropdown
               // It allows you to capture what the user is typing or selecting immediately as it happens.
               //so it listens for changes in input field and calls the handleFieldChange fx
+              //continually updates the 'transfer'
               value={transfer.accountId}
               className={classes.large}
+              
             >
               <option value="">Select an account</option>
               {/* //22:50 */}
@@ -67,7 +80,7 @@ export const TransferFormComponent: React.FC<Props> = (props) => {
                   {/* key={account.id} is specific to React and allows it to id each element. its to link with the html elements and gives each a 'key'.
 
                 value={account.id} (HTML) it sets what is submitted when user chooses an option. Ie account.id becomes the value of the select element when the user selects this. Its sets the value to what the user has chosen*/}
-                  {account.alias}{" "}
+                  {account.alias}
                   {/* this is the only visible part as its between the tags*/}
                 </option>
               ))}

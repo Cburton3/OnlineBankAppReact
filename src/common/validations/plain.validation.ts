@@ -8,6 +8,6 @@ export const isDateAfterToday = (date : Date) : boolean => date > new Date();//g
 
 export const isEmailWellFormed = (email: string): boolean => validator.isEmail(email);
 
-export const isStringValueFilledOut = (field : string) : boolean => field !== '';
+export const isStringValueProvided = (field : string) : boolean => field !== '';
 
 export const isValueNotNullOrUndefined = <T>(value: T): boolean => value !== undefined && value !== null; //the T is just a placeholder for 'any' generic type that is determiend when the fx is used. its better and more specific than using 'any'

@@ -1,34 +1,27 @@
 import {
+  buildRequiredFieldValidationFailedResponse,
+  buildValidationFailedResponse,
+  buildValidationSucceeded,
   isDateAfterToday,
   isEmailWellFormed,
   isPositiveNumber,
-  isStringValueFilledOut,
+  isStringValueProvided,
   isValidIban,
   isValueNotNullOrUndefined
 } from "@/common/validations";
-import { FieldValidationResult } from "../transfer.vm";
 import {
   INVALID_AMOUNT_MESSAGE,
   INVALID_EMAIL_MESSAGE,
   INVALID_IBAN_MESSAGE,
   INVALID_REAL_DATE_TRANSFER_MESSAGE,
-  REQUIRED_FIELD_MESSAGE
 } from "@/common/validations/validation.const";
+import { FieldValidationResult } from "@/common/validations/validation.model";
 
-const buildValidationFailedResponse = (
-  errorMessage: string
-): FieldValidationResult => ({
-  succeeded: false,
-  errorMessage: errorMessage
-});
 
-const buildValidationSucceeded = () => ({
-  succeeded: true
-});
 
 export const validateIBANField = (value: string): FieldValidationResult => {
-  if (!isStringValueFilledOut(value)) {
-    return buildValidationFailedResponse(REQUIRED_FIELD_MESSAGE);
+  if (!isStringValueProvided(value)) {
+    return buildRequiredFieldValidationFailedResponse();
   }
 
   if (!isValidIban(value)) {
@@ -41,16 +34,16 @@ export const validateIBANField = (value: string): FieldValidationResult => {
 export const validateAccountIdField = (
   value: string
 ): FieldValidationResult => {
-  if (!isStringValueFilledOut(value)) {
-    return buildValidationFailedResponse(REQUIRED_FIELD_MESSAGE);
+  if (!isStringValueProvided(value)) {
+    return buildRequiredFieldValidationFailedResponse();
   }
 
   return buildValidationSucceeded();
 };
 
 export const validateNameField = (value: string): FieldValidationResult => {
-  if (!isStringValueFilledOut(value)) {
-    return buildValidationFailedResponse(REQUIRED_FIELD_MESSAGE);
+  if (!isStringValueProvided(value)) {
+    return buildRequiredFieldValidationFailedResponse();
   }
   return buildValidationSucceeded();
 };
@@ -63,8 +56,8 @@ export const validateAmountField = (value: number): FieldValidationResult => {
 };
 
 export const validateConceptField = (value: string): FieldValidationResult => {
-  if (!isStringValueFilledOut(value)) {
-    return buildValidationFailedResponse(REQUIRED_FIELD_MESSAGE);
+  if (!isStringValueProvided(value)) {
+    return buildRequiredFieldValidationFailedResponse();
   }
   return buildValidationSucceeded();
 };
@@ -87,7 +80,7 @@ export const validateRealDateTransferField = (
 };
 
 export const validateEmailField = (value: string): FieldValidationResult => {
-  if (!isStringValueFilledOut(value)) {
+  if (!isStringValueProvided(value)) {
     return buildValidationSucceeded();
   }
 
