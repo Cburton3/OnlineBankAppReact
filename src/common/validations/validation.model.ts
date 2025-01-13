@@ -5,5 +5,5 @@ export interface FieldValidationResult {
   
   export interface FormValidationResult<T> { //whole form
       succeeded: boolean;
-      errors: T;//using t to make generic
+      errors: T;//using t to make generic so on createAccount it means errors: <CreateAccountError>
   }

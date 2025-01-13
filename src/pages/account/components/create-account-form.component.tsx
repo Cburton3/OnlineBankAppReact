@@ -39,7 +39,7 @@ export const CreateAccountComponent: React.FC<Props> = (props) => {
           <div>
             <label>Account Type:</label>
             <select
-              name="accountId"
+              name="type"
               onChange={handleFieldChange}
               // value={transfer.accountId}
               className={classes.medium}

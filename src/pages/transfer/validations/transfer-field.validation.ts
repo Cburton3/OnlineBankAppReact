@@ -69,7 +69,7 @@ export const validateRealDateTransferField = (
   value?: Date
 ): FieldValidationResult => {
   if (!isValueNotNullOrUndefined(value)) {
-    return buildRequiredFieldValidationFailedResponse(); //check this cos i changed it from 'buildValidationSucceeded()'
+    return buildValidationSucceeded();
   }
   if (value && !isDateAfterToday(value)) {
     //issue here is that fx can only handles dates, not dates or undefined. Need to ensure a valid date before passing to fx so we check if its not null or undefined simply by putting if (value) and in this case && as fist it checks if value exists then it runs the fx

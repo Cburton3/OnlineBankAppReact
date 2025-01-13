@@ -4,7 +4,7 @@ export const isValidIban = (iban: string): boolean => validator.isIBAN(iban);//t
 
 export const isPositiveNumber = (amount : number) : boolean => amount > 0;
 
-export const isDateAfterToday = (date : Date) : boolean => date > new Date();//gives current date
+export const isDateAfterToday = (date : Date) : boolean => new Date(date) > new Date();//gives current date
 
 export const isEmailWellFormed = (email: string): boolean => validator.isEmail(email);
 
