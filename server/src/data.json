@@ -25,148 +25,34 @@
       "lastTransaction": "2019-11-15T08:29:04"
     },
     {
-      "iban": "MK70 9813 7501 702R 549",
-      "name": "",
-      "type": "",
+      "iban": "PS87 9947 4507 6400 3700 7570 3316 4",
+      "name": "Savings1",
       "balance": 0,
-      "lastTransaction": "2025-01-09T13:17:21.110Z",
-      "id": "GDgsU6P"
+      "lastTransaction": "2025-01-13T11:02:07.040Z",
+      "id": "8sJwOuU"
     },
     {
-      "iban": "KZ45 5330 L19F 0377 9191",
+      "iban": "PS65 X617 0077 8008 4300 2990 8001 6",
       "name": "",
-      "type": "",
       "balance": 0,
-      "lastTransaction": "2025-01-09T13:18:11.234Z",
-      "id": "1P-wUhm"
+      "lastTransaction": "2025-01-13T11:03:21.664Z",
+      "id": "DqAwxfq"
     },
     {
-      "iban": "KZ82 6621 FL17 H904 Q824",
-      "name": "",
-      "type": "",
-      "balance": 0,
-      "lastTransaction": "2025-01-09T13:39:27.216Z",
-      "id": "H1vfx_Q"
-    },
-    {
-      "iban": "LI41 0031 5W84 9121 84Q0 1",
-      "name": "empresa",
+      "iban": "SE74 0052 6019 6009 0089 4074",
+      "name": "ahorros3",
       "type": "1",
       "balance": 0,
-      "lastTransaction": "2025-01-09T13:55:01.504Z",
-      "id": "oukU8U0"
+      "lastTransaction": "2025-01-13T11:26:19.513Z",
+      "id": "Oi1Co2o"
     },
     {
-      "iban": "JO82 LPVT 0588 8090 9100 8262 4003 05",
+      "iban": "LB17 8230 S916 0HD4 9744 D315 026P",
       "name": "",
+      "type": "",
       "balance": 0,
-      "lastTransaction": "2025-01-10T09:02:42.041Z",
-      "id": "XllAnkj"
-    },
-    {
-      "iban": "DO36 JAXD 0055 0010 2004 5060 0107",
-      "name": "ahorros2",
-      "balance": 0,
-      "lastTransaction": "2025-01-10T09:35:45.291Z",
-      "id": "YJ1wwWc"
-    },
-    {
-      "iban": "BA14 0900 1100 2900 6218",
-      "name": "Hello",
-      "balance": 0,
-      "lastTransaction": "2025-01-10T10:37:00.255Z",
-      "id": "7G-3b_e"
-    },
-    {
-      "iban": "GR69 6063 8920 D8O3 0269 8103 258",
-      "name": "Hello",
-      "balance": 0,
-      "lastTransaction": "2025-01-10T10:37:18.074Z",
-      "id": "cegwuQO"
-    },
-    {
-      "iban": "BA75 5980 3900 8070 7798",
-      "name": "Current Account",
-      "balance": 0,
-      "lastTransaction": "2025-01-10T10:43:15.370Z",
-      "id": "1dtt-uC"
-    },
-    {
-      "iban": "AL23 9065 0799 064O 9831 6653 N365",
-      "name": "",
-      "balance": 0,
-      "lastTransaction": "2025-01-10T13:13:47.702Z",
-      "id": "MbvrxZ7"
-    },
-    {
-      "iban": "PK46 3826 7008 4010 0307 1054",
-      "name": "",
-      "balance": 0,
-      "lastTransaction": "2025-01-10T13:15:17.501Z",
-      "id": "CAjVSBK"
-    },
-    {
-      "iban": "AE14 9750 0288 3801 1910 798",
-      "name": "",
-      "balance": 0,
-      "lastTransaction": "2025-01-10T13:15:47.596Z",
-      "id": "M-zNsDE"
-    },
-    {
-      "iban": "LU44 6894 854W 1H0R 9647",
-      "name": "ahorros3",
-      "balance": 0,
-      "lastTransaction": "2025-01-13T10:11:56.907Z",
-      "id": "UfXvpUp"
-    },
-    {
-      "iban": "AT96 0032 1420 0710 7603",
-      "name": "ahorros4",
-      "balance": 0,
-      "lastTransaction": "2025-01-13T10:12:20.039Z",
-      "id": "AEk0Hsn"
-    },
-    {
-      "iban": "AE34 0050 0300 0814 5227 713",
-      "name": "ahorros6",
-      "balance": 0,
-      "lastTransaction": "2025-01-13T10:12:31.090Z",
-      "id": "7EwGSz8"
-    },
-    {
-      "iban": "DO73 MMIZ 9508 9090 3342 7006 6006",
-      "name": "",
-      "balance": 0,
-      "lastTransaction": "2025-01-13T10:12:50.633Z",
-      "id": "G12RdtB"
-    },
-    {
-      "iban": "CR79 0025 0707 1430 4859 4",
-      "name": "wedasd",
-      "balance": 0,
-      "lastTransaction": "2025-01-13T10:12:59.051Z",
-      "id": "tUYkrpy"
-    },
-    {
-      "iban": "DK08 0817 6810 0630 09",
-      "name": "ahorros2",
-      "balance": 0,
-      "lastTransaction": "2025-01-13T10:51:37.393Z",
-      "id": "vzxkLRV"
-    },
-    {
-      "iban": "AT03 8006 2710 3020 9485",
-      "name": "ahorros2",
-      "balance": 0,
-      "lastTransaction": "2025-01-13T10:53:04.924Z",
-      "id": "TZ497Vb"
-    },
-    {
-      "iban": "MK26 4809 1651 0028 424",
-      "name": "ahorros3",
-      "balance": 0,
-      "lastTransaction": "2025-01-13T10:55:16.670Z",
-      "id": "9aUmG_L"
+      "lastTransaction": "2025-01-13T11:26:31.655Z",
+      "id": "kfLI5H8"
     }
   ],
   "movements": [
@@ -255,12 +141,12 @@
   "transfer": [
     {
       "accountId": "1",
-      "iban": "ES9121000418450200051332",
-      "name": "Your mum",
-      "amount": "200",
-      "concept": "servicios realizados",
+      "iban": "ES91 2100 0418 4502 0005 1332",
+      "name": "Ikea",
+      "amount": "300",
+      "concept": "Obras",
       "notes": "",
-      "transferDate": "Wed Dec 18 2024",
+      "transferDate": "Mon Jan 13 2025",
       "realTransferDate": "",
       "id": 1
     }

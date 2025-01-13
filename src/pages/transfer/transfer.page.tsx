@@ -5,7 +5,8 @@ import { TransferFormComponent } from "./components";
 import classes from './transfer.page.module.css';
 import { getAccountList, saveTransfer } from "./api";
 import { mapAccountFromApiToVm, mapTransferFromVmToApi } from "./transfer.mapper";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { appRoutes } from "@/core/router";
 
 // const accountListMock: AccountVm[] = [
 //   { id: "1", alias: "Cuenta principal", iban: "ES91 2100 0418 4502 0005 1332" },
@@ -14,6 +15,7 @@ import { useParams } from "react-router-dom";
 // ];
 
 export const TransferPage: React.FC = () => {
+  const navigate = useNavigate()
   const [accountList, setAccountList] = React.useState<AccountVm[]>([]);
   const {id} = useParams<{id: string}>(); //useParams gets the id from the url
   //as the mock data/api data is passed from the setAccountList and setAccoutList updates accountList, the mockdata becomes the account list. Get it? good!
@@ -30,7 +32,8 @@ export const TransferPage: React.FC = () => {
     saveTransfer(transfer).then(result => {
       if(result) {
         alert('Transfer successful')
-        //could put a nagivate here to go back to main accounts
+        navigate(appRoutes.accountList);
+        
       } else {
         alert('transfer unsuccessful')
       }

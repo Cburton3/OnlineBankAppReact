@@ -5,7 +5,7 @@ export const mapAccountFromApiToVm = (
   account: apiModel.Account
 ): viewModel.AccountVm => ({
   id: account.id,
-  alias: account.name,
+  alias: account.name, //re leftside is what you get out of it
   iban: account.iban
 });
 

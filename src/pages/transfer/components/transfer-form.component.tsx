@@ -125,8 +125,7 @@ export const TransferFormComponent: React.FC<Props> = (props) => {
         <div className={classes.formContainer}>
           <div>
             <p>
-              In order for the transfer to be made on a date other than today's
-              date, please indicate the date of transfer.
+              In order for the transfer to be made on a date other than today's, please indicate the desired date of transfer.
             </p>
             <div>
               <label>Transfer date:</label>

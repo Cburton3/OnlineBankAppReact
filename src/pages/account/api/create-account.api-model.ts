@@ -1,8 +1,8 @@
-export interface Account {
-  id: string;
-  iban: string;
+export interface AccountApi {
+  // id: string;
+  // iban: string;
   type: string;
   name: string;
-  balance: number;
-  lastTransaction: string;
+  // balance: number;
+  // lastTransaction: string;
 }

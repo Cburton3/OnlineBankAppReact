@@ -38,8 +38,8 @@ export const CreateAccountPage: React.FC = () => {
           onAccountCreation={handleCreateAccount}
           >
           </CreateAccountComponent>
-           {/* re chidlren go inside the tags */}
-           {/* children are what go here, inbetween the tags */}
+           {/* re chidlren go inside/before the tags NOT between */}
+          
            {/* kept getting an error here as  React automatically includes an empty children array when no children are passed */}
         
       </div>

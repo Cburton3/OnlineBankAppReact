@@ -5,7 +5,6 @@ import { validateForm } from "../validations/create-account-form.validation";
 
 interface Props {
   onAccountCreation: (accountInfo: AccountVm) => void;
-  defaultAccountCreation?: string;
   children?: React.ReactNode;
 }
 
@@ -24,7 +23,9 @@ export const CreateAccountComponent: React.FC<Props> = (props) => {
     e.preventDefault();
     const formValidationResult = validateForm(newAccount);
     setErrors(formValidationResult.errors)
-    onAccountCreation(newAccount);
+    if(formValidationResult.succeeded) {
+      onAccountCreation(newAccount);
+    }
   };
 
   const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
