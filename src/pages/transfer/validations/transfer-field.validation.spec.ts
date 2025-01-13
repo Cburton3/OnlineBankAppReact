@@ -45,7 +45,7 @@ describe("transfer-field.validation specs", () => {
   });
 
   describe("validateRealDateTransferField", () => {
-    it("should return true when date is not informed", () => {
+    it("should return true when date is empty", () => {
       // Arrange
       const value = undefined;
 
@@ -62,7 +62,7 @@ describe("transfer-field.validation specs", () => {
       value.setDate(value.getDate() - 1);
 
       // Act
-      const result = validateRealDateTransferField(value);
+      const result = validateRealDateTransferField(value.toISOString());
 
       // Assert
       expect(result.succeeded).toBeFalsy();
@@ -74,7 +74,7 @@ describe("transfer-field.validation specs", () => {
       value.setDate(value.getDate() + 1);
 
       // Act
-      const result = validateRealDateTransferField(value);
+      const result = validateRealDateTransferField(value.toISOString());
 
       // Assert
       expect(result.succeeded).toBeTruthy();

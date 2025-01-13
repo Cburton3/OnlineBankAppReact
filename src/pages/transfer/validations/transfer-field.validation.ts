@@ -66,7 +66,7 @@ export const validateNotesField = (_: string): FieldValidationResult =>
 // The function has a parameter for type or signature consistency, but the parameter itself is not relevant for the implementation.
 
 export const validateRealDateTransferField = (
-  value?: Date
+  value?: string
 ): FieldValidationResult => {
   if (!isValueNotNullOrUndefined(value)) {
     return buildValidationSucceeded();

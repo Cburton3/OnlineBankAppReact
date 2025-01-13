@@ -11,7 +11,7 @@ export interface TransferVm {
   concept: string;
   notes: string;
   dateTransfer: string;
-  realDateTransfer?: Date;
+  realDateTransfer?: string;
   email: string;
 }
 
@@ -23,7 +23,8 @@ export const createEmptyTransferVm = (): TransferVm => ({
   concept: "",
   notes: "",
   dateTransfer: "",
-  realDateTransfer: undefined,
+  // realDateTransfer: undefined,
+  realDateTransfer: '',
   email: ""
 });
 

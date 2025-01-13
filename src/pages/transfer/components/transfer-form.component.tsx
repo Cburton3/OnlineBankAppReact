@@ -12,10 +12,10 @@ import classes from "./transfer-form.component.module.css";
 interface Props {
   accountList: AccountVm[];
   onTransfer: (transferInfo: TransferVm) => void; //this specifies the type of fx property. Its means the fx doesnt return a value
-  defaultAccountId?: string; 
+  defaultAccountId?: string;
   //This allows the dropdown to show the pre-selected account if defaultAccountId is given or leave it unselected otherwise.
   //its an optional props so if user enters this page independandly, it isent used.
-  //it preselects an account with the id of the account the user pressed 
+  //it preselects an account with the id of the account the user pressed
 }
 
 export const TransferFormComponent: React.FC<Props> = (props) => {
@@ -29,11 +29,20 @@ export const TransferFormComponent: React.FC<Props> = (props) => {
   );
 
   React.useEffect(() => {
-    setTransfer({
-      ...transfer,//make a copy so that next transfer doesnt have anything to do with previous
-      accountId: defaultAccountId ?? '',//account id comes from transfer(VM). youre saying set the id number from the URL (transferpage) to the accountId
-    })
+    if (defaultAccountId) {
+      setTransfer((prevTransfer) => ({
+        ...prevTransfer,
+        accountId: defaultAccountId
+      }));
+    }
   }, []);
+
+  // React.useEffect(() => {
+  //   setTransfer({
+  //     ...transfer, //make a copy so that next transfer doesnt have anything to do with previous
+  //     accountId: defaultAccountId ?? "" //account id comes from transfer(VM). youre saying set the id number from the URL (transferpage) to the accountId
+  //   });
+  // }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     //when you click the button
@@ -69,8 +78,7 @@ export const TransferFormComponent: React.FC<Props> = (props) => {
               //so it listens for changes in input field and calls the handleFieldChange fx
               //continually updates the 'transfer'
               value={transfer.accountId}
-              className={classes.large}
-              
+              className={`${classes.large} ${classes.accountSelect}`}
             >
               <option value="">Select an account</option>
               {/* //22:50 */}
@@ -108,24 +116,38 @@ export const TransferFormComponent: React.FC<Props> = (props) => {
           </div>
           <div>
             <label>Amount:</label>
-            <input type="number" name="amount" onChange={handleFieldChange} className={classes.small}/>
+            <input
+              type="number"
+              name="amount"
+              onChange={handleFieldChange}
+              className={classes.small}
+            />
             <p className={classes.error}>{errors.amount}</p>
           </div>
           <div>
             <label>Concept:</label>
-            <input name="concept" onChange={handleFieldChange} className={classes.large}/>
+            <input
+              name="concept"
+              onChange={handleFieldChange}
+              className={classes.large}
+            />
             <p className={classes.error}>{errors.concept}</p>
           </div>
           <div>
             <label>Observations</label>
-            <input name="notes" onChange={handleFieldChange} className={classes.large}/>
+            <input
+              name="notes"
+              onChange={handleFieldChange}
+              className={classes.large}
+            />
             <p className={classes.error}>{errors.notes}</p>
           </div>
         </div>
         <div className={classes.formContainer}>
           <div>
             <p>
-              In order for the transfer to be made on a date other than today's, please indicate the desired date of transfer.
+              In order for the transfer to be made on a date other than today's,
+              please indicate the desired date of transfer.
             </p>
             <div>
               <label>Transfer date:</label>
@@ -143,7 +165,12 @@ export const TransferFormComponent: React.FC<Props> = (props) => {
             <p>Enter an email address to notify the beneficiary:</p>
             <div>
               <label>Beneficiary's email address:</label>
-              <input type="text" name="email" onChange={handleFieldChange} className={classes.large}/>
+              <input
+                type="text"
+                name="email"
+                onChange={handleFieldChange}
+                className={classes.large}
+              />
               <p className={classes.error}>{errors.email}</p>
             </div>
           </div>
