@@ -22,7 +22,7 @@ describe("transfer-field.validation specs", () => {
       expect(result.succeeded).toBeTruthy();
     });
 
-    it("should return false when email is not well formed", () => {
+    it("should return false when email is not well constructed", () => {
       // Arrange
       const value = "john@gmail";
 
@@ -33,7 +33,7 @@ describe("transfer-field.validation specs", () => {
       expect(result.succeeded).toBeFalsy();
       expect(result.errorMessage).toEqual(INVALID_EMAIL_MESSAGE);
     });
-    it("should return true when email is well formed", () => {
+    it("should return true when email is well constructed", () => {
       // Arrange
       const value = "john@gmail.com";
       // Act

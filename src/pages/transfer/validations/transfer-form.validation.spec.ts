@@ -4,7 +4,7 @@ import * as transferFieldValidation from "./transfer-field.validation";
 import { validateForm } from "./transfer-form.validation";
 // use spyOn when you are testing a fx that has many otehr fx's inside and you just want to mock them to test the main one.
 
-describe("transfer-form.validation specs", () => {//for notes see line 77
+describe("transfer-form.validation specs", () => {//for notes see line 80
   describe("validateForm", () => {
     it("it should return true when all the fields are correct", () => {
       // Arrange
@@ -40,7 +40,9 @@ describe("transfer-form.validation specs", () => {//for notes see line 77
       vi.spyOn(
         transferFieldValidation,
         "validateRealDateTransferField"
-      ).mockReturnValue({ succeeded: true });
+      ).mockReturnValue({ succeeded: true 
+        
+      });
       vi.spyOn(transferFieldValidation, "validateEmailField").mockReturnValue({
         succeeded: true
       });
@@ -63,7 +65,7 @@ describe("transfer-form.validation specs", () => {//for notes see line 77
       });
     });
 
-    it("should return false when validateNameFieldAmount is incorrect", () => {
+    it("should return false when validateNameField is incorrect", () => {
       // Arrange
       const transfer: TransferVm = {
         accountId: "1",
@@ -77,7 +79,7 @@ describe("transfer-form.validation specs", () => {//for notes see line 77
       };
       vi.spyOn(transferFieldValidation, "validateIBANField").mockReturnValue({//we wrap the fx/method so that vitest spyOn can monitor it
         //the string validateIBANField has to be exactly the same as the fx we are wrapping.
-        //needs to bestring as thats what spyOn uses to find the property of transferFieldValidation and alls spyOn to track the fx without calling it.
+        //needs to be a string as thats what spyOn uses to find the property of transferFieldValidation and all spyOn to track the fx without calling it.
         // we replace its return value with mockReturnValue
         //if no mock, spyOn still tracks calls but runs the original function
         succeeded: true
@@ -120,9 +122,8 @@ describe("transfer-form.validation specs", () => {//for notes see line 77
         notes: "",
         realDateTransfer: "",
         email: "",
-        dateTransfer: ""//empty cos it only means the error message for each one is empty
+        dateTransfer: ""
       });
-      // Do the same with the rest of the fields
     });
   });
 });
