@@ -1,14 +1,10 @@
 .footer {
-    background-color: var(--secondary_color);
-    display: flex;
-    justify-content: center;
-    padding: 5em;
-    /* position: absolute;
-    bottom: 0;
-    width: 100%; */   
+  background-color: var(--secondary_color);
+  display: flex;
+  justify-content: center;
+  padding: 5em;
 }
 
 .footer-logo {
-    width: 200px;
+  width: 200px;
 }
-/* layout context  */

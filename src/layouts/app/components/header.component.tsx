@@ -1,17 +1,17 @@
 import React from "react";
-import logoHeader from '/assets/logo_header_white.svg';
-import classes from './header.component.module.css';
-import {useProfileContext} from '@/core/profile';
+import logoHeader from "/assets/logo_header_white.svg";
+import classes from "./header.component.module.css";
+import { useProfileContext } from "@/core/profile";
 
 export const HeaderComponent: React.FC = () => {
-  const {userName} = useProfileContext();//allows access of userName without having to call props
-  
+  const { userName } = useProfileContext();
+
   return (
     <header className={classes.header}>
       <div>
-        <img src={logoHeader} className={classes.headerLogo}/>
+        <img src={logoHeader} className={classes.headerLogo} />
         <div className={classes.user}>
-            <p>{userName}</p>
+          <p>{userName}</p>
         </div>
       </div>
     </header>
