@@ -1,47 +1,36 @@
 .form-container {
-    border: none;
-    border-bottom: 1px solid var(--secondary_color);
-    padding: 40px 0;
-  }
-
-label {
-    margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid var(--secondary_color);
+  padding: 40px 0;
 }
 
-  /* .form-container p {
-    font-size: 0.9em;
-    margin-bottom: 20px;
-    font-weight: 400;
-  } */
-  
-  .form-container div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  /* .form-container div {
-    margin: 0 10px;
-  } */
-  
-  .form-container label {
-    margin-right: 20px;
-    min-width: 100px;
-    text-align: right;
-  }
+label {
+  margin-bottom: 10px;
+}
 
-  .button {
-    margin: 10px auto;
-  }
+.form-container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
-  
-  .medium {
-    width: 200px;
-  }
+.form-container label {
+  margin-right: 20px;
+  min-width: 100px;
+  text-align: right;
+}
 
-  .error {
-    color: var(--error_color);
-    margin-top: 0.5rem;
-    margin-left: 1rem;
-  }
+.button {
+  margin: 10px auto;
+}
+
+.medium {
+  width: 200px;
+}
+
+.error {
+  color: var(--error_color);
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+}

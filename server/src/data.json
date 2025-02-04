@@ -24,36 +24,7 @@
       "balance": 8500,
       "lastTransaction": "2019-11-15T08:29:04"
     },
-    {
-      "iban": "PS87 9947 4507 6400 3700 7570 3316 4",
-      "name": "Savings1",
-      "balance": 0,
-      "lastTransaction": "2025-01-13T11:02:07.040Z",
-      "id": "8sJwOuU"
-    },
-    {
-      "iban": "PS65 X617 0077 8008 4300 2990 8001 6",
-      "name": "",
-      "balance": 0,
-      "lastTransaction": "2025-01-13T11:03:21.664Z",
-      "id": "DqAwxfq"
-    },
-    {
-      "iban": "SE74 0052 6019 6009 0089 4074",
-      "name": "ahorros3",
-      "type": "1",
-      "balance": 0,
-      "lastTransaction": "2025-01-13T11:26:19.513Z",
-      "id": "Oi1Co2o"
-    },
-    {
-      "iban": "LB17 8230 S916 0HD4 9744 D315 026P",
-      "name": "",
-      "type": "",
-      "balance": 0,
-      "lastTransaction": "2025-01-13T11:26:31.655Z",
-      "id": "kfLI5H8"
-    },
+    
     {
       "iban": "IT02 P627 6096 7108 M9CR A918 P65",
       "name": "Stocks",

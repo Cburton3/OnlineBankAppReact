@@ -45,8 +45,7 @@ export const MovementListPage: React.FC = () => {
   const [accountList, setAccountList] = React.useState<AccountVm[]>([]);
 
   const [movementList, setMovementList] = React.useState<MovementVm[]>([]);
-  const { id } = useParams<{ id: string }>(); // Extract accountId from URL
-  //this works cos lets say <Route path="/movement/:id". the :id is a placeholder for a value in the URL so /movement/123, placeholder 123.
+  const { id } = useParams<{ id: string }>();
 
   React.useEffect(() => {
     if (id) {
@@ -54,27 +53,19 @@ export const MovementListPage: React.FC = () => {
         .then((result) => setMovementList(mapMovementListFromApiToVm(result)))
         .catch((error) => console.log("Error fetching movements:", error));
     }
-  }, [id]); //can put accountId here to Re-run effect when accountId changes
+  }, [id]);
 
   if (!id) {
     return <div className={classes.errorMessage}>Invalid Account ID</div>;
   }
 
   React.useEffect(() => {
-    //we need to use use effect here as we are acccessing data outside of the component scope
     getAccountList()
       .then((result) => setAccountList(mapAccountListFromApiToVm(result)))
       .catch((error) => console.log("Error fetching account list:", error));
   }, []);
 
-  // React.useEffect(() => {
-  //   getAccountList().then((result) =>
-  //     setAccountList(mapAccountListFromApiToVm(result))
-  //   );
-  // }, []); //deleted cos same as above but with error handling
-
   const selectedAccount = accountList.find((account) => account.id === id);
-  //selectedAccount holds the account object that matches the ID.
 
   return (
     <AppLayout>
@@ -99,17 +90,9 @@ export const MovementListPage: React.FC = () => {
           </h3>
         </div>
         <MovementListTableComponent
-          movementList={movementList} //by saying this var is this prop, you are giving the props in MovementListTableComponent the value of this var
+          movementList={movementList}
         ></MovementListTableComponent>
       </div>
-      {/* You must use the ={...} syntax to pass anything through a component (so a prop)
-      {MoveList} is the prop, the other the var
-      */}
     </AppLayout>
   );
 };
-
-//issues
-/**
- 
- */

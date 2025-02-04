@@ -1,6 +1,11 @@
 import React from "react";
 import classes from "./create-account.component.module.css";
-import { AccountVm, CreateAccountError, createEmptyAccountVm, createEmptyCreateAccountError } from "../create-account.vm";
+import {
+  AccountVm,
+  CreateAccountError,
+  createEmptyAccountVm,
+  createEmptyCreateAccountError
+} from "../create-account.vm";
 import { validateForm } from "../validations/create-account-form.validation";
 
 interface Props {
@@ -22,16 +27,19 @@ export const CreateAccountComponent: React.FC<Props> = (props) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formValidationResult = validateForm(newAccount);
-    setErrors(formValidationResult.errors)
-    if(formValidationResult.succeeded) {
+    setErrors(formValidationResult.errors);
+    if (formValidationResult.succeeded) {
       onAccountCreation(newAccount);
     }
   };
 
-  const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>
+  const handleFieldChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLSelectElement>
   ) => {
-    setNewAccount({...newAccount, [e.target.name]: e.target.value});//this updates the type and name
-  }
+    setNewAccount({ ...newAccount, [e.target.name]: e.target.value });
+  };
 
   return (
     <div>
@@ -42,7 +50,6 @@ export const CreateAccountComponent: React.FC<Props> = (props) => {
             <select
               name="type"
               onChange={handleFieldChange}
-              // value={transfer.accountId}
               className={classes.medium}
             >
               <option value="">Select an account</option>

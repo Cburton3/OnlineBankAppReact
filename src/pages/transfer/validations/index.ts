@@ -1,1 +1,1 @@
-export * from './transfer-form.validation';
+export * from "./transfer-form.validation";

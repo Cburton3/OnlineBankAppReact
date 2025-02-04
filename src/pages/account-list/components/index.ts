@@ -1,1 +1,1 @@
-export * from './account-list-table.components';
+export * from "./account-list-table.components";

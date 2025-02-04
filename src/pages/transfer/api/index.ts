@@ -1,2 +1,2 @@
-export * from './transfer.api';
-export * from './transfer.api-model';
+export * from "./transfer.api";
+export * from "./transfer.api-model";

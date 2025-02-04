@@ -2,9 +2,12 @@ import { AppLayout } from "@/layouts";
 import React from "react";
 import { AccountVm, TransferVm } from "./transfer.vm";
 import { TransferFormComponent } from "./components";
-import classes from './transfer.page.module.css';
+import classes from "./transfer.page.module.css";
 import { getAccountList, saveTransfer } from "./api";
-import { mapAccountFromApiToVm, mapTransferFromVmToApi } from "./transfer.mapper";
+import {
+  mapAccountFromApiToVm,
+  mapTransferFromVmToApi
+} from "./transfer.mapper";
 import { useNavigate, useParams } from "react-router-dom";
 import { appRoutes } from "@/core/router";
 
@@ -15,44 +18,41 @@ import { appRoutes } from "@/core/router";
 // ];
 
 export const TransferPage: React.FC = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [accountList, setAccountList] = React.useState<AccountVm[]>([]);
-  const {id} = useParams<{id: string}>(); //useParams gets the id from the url
-  //as the mock data/api data is passed from the setAccountList and setAccoutList updates accountList, the mockdata becomes the account list. Get it? good!
+  const { id } = useParams<{ id: string }>();
 
-  React.useEffect(() => {//used cos the mock is outside the component
-    getAccountList().then((accountListApi) => {//accountListApi would be the 'data'
-      const accountListVm = accountListApi.map(mapAccountFromApiToVm);//put in Vm style for UI
-      setAccountList(accountListVm)//updates accountList
+  React.useEffect(() => {
+    getAccountList().then((accountListApi) => {
+      const accountListVm = accountListApi.map(mapAccountFromApiToVm);
+      setAccountList(accountListVm);
     });
   }, []);
 
   const handleTransfer = (transferInfo: TransferVm) => {
     const transfer = mapTransferFromVmToApi(transferInfo);
-    saveTransfer(transfer).then(result => {
-      if(result) {
-        alert('Transfer successful')
+    saveTransfer(transfer).then((result) => {
+      if (result) {
+        alert("Transfer successful");
         navigate(appRoutes.accountList);
-        
       } else {
-        alert('transfer unsuccessful')
+        alert("transfer unsuccessful");
       }
-    })
+    });
   };
 
   return (
     <AppLayout>
       <div className={classes.container}>
         <h1 className={classes.title}>National Transfers</h1>
-      <TransferFormComponent 
-      accountList={accountList}//all 3 being passed as props
-      onTransfer={handleTransfer}
-      defaultAccountId = {id} //makes the default id the one that was clicked back on account page. 
-      ></TransferFormComponent>
+        <TransferFormComponent
+          accountList={accountList}
+          onTransfer={handleTransfer}
+          defaultAccountId={id}
+        ></TransferFormComponent>
       </div>
     </AppLayout>
   );
 };
-
 
 //How does the option value get calc to display whats there anyway?

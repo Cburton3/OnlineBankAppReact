@@ -47,7 +47,7 @@ describe("create-account-form.validation specs", () => {
         "validateNameField"
       ).mockReturnValue({
         succeeded: false,
-        errorMessage: "Error" //not the actual error message but not needed as its type only asks for a string and we only need to say its false.
+        errorMessage: "Error"
       });
 
       //Act

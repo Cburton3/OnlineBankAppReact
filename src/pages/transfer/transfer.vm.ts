@@ -23,8 +23,7 @@ export const createEmptyTransferVm = (): TransferVm => ({
   concept: "",
   notes: "",
   dateTransfer: "",
-  // realDateTransfer: undefined,
-  realDateTransfer: '',
+  realDateTransfer: "",
   email: ""
 });
 
@@ -37,7 +36,7 @@ export interface TransferError {
   notes: string;
   dateTransfer: string;
   realDateTransfer?: string;
-  email: string; //all strings cos they error messages hence different to transferVm. Is a set obj containing diff info
+  email: string;
 }
 
 export const createEmptyTransferError = (): TransferError => ({
@@ -51,5 +50,3 @@ export const createEmptyTransferError = (): TransferError => ({
   realDateTransfer: "",
   email: ""
 });
-
-

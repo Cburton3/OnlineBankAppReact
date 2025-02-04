@@ -1,19 +1,19 @@
 export interface AccountVm {
-    type: string;
-    name: string;
-  }
+  type: string;
+  name: string;
+}
 
-  export const createEmptyAccountVm = (): AccountVm => ({
-    type: '',//this is a number string
-    name: ''//this is the alias
-  });
+export const createEmptyAccountVm = (): AccountVm => ({
+  type: "",
+  name: ""
+});
 
-  export interface CreateAccountError {
-    type: string;
-    name: string;
-  }
+export interface CreateAccountError {
+  type: string;
+  name: string;
+}
 
-  export const createEmptyCreateAccountError = (): CreateAccountError => ({
-    type: '',
-    name: ''
-  })
+export const createEmptyCreateAccountError = (): CreateAccountError => ({
+  type: "",
+  name: ""
+});

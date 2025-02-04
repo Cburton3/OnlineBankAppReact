@@ -1,4 +1,10 @@
-import { INVALID_EMAIL_MESSAGE, INVALID_REAL_DATE_TRANSFER_MESSAGE, REQUIRED_FIELD_MESSAGE, INVALID_AMOUNT_MESSAGE, INVALID_IBAN_MESSAGE } from "@/common/validations/validation.const";
+import {
+  INVALID_EMAIL_MESSAGE,
+  INVALID_REAL_DATE_TRANSFER_MESSAGE,
+  REQUIRED_FIELD_MESSAGE,
+  INVALID_AMOUNT_MESSAGE,
+  INVALID_IBAN_MESSAGE
+} from "@/common/validations/validation.const";
 import {
   validateIBANField,
   validateAccountIdField,
@@ -6,14 +12,14 @@ import {
   validateAmountField,
   validateConceptField,
   validateRealDateTransferField,
-  validateEmailField,
+  validateEmailField
 } from "./transfer-field.validation";
 
 describe("transfer-field.validation specs", () => {
   describe("validateEmailField", () => {
     it("should return true when email is not filled in", () => {
       // Arrange
-      const value = '';
+      const value = "";
 
       // Act
       const result = validateEmailField(value);

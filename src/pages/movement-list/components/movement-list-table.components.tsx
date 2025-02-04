@@ -3,9 +3,8 @@ import { MovementVm } from "../movement-list.vm";
 import classes from "./movement-list-table.components.module.css";
 import { MovementListItemComponent } from "./movement-list-item.component";
 
-
 interface Props {
-  movementList: MovementVm[]; //this var is given chicha in movement list page in RC
+  movementList: MovementVm[];
 }
 
 export const MovementListTableComponent: React.FC<Props> = (props) => {
@@ -24,7 +23,10 @@ export const MovementListTableComponent: React.FC<Props> = (props) => {
           </div>
 
           {movementList.map((movement) => (
-            <MovementListItemComponent key={movement.id} movementItem={movement}></MovementListItemComponent>
+            <MovementListItemComponent
+              key={movement.id}
+              movementItem={movement}
+            ></MovementListItemComponent>
           ))}
         </div>
       </div>

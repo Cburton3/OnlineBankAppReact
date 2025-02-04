@@ -16,8 +16,8 @@ export const validateForm = (
   return {
     succeeded: fieldValidationResults.every((f) => f.succeeded),
     errors: {
-        type: fieldValidationResults[0].errorMessage ?? '',
-        name: fieldValidationResults[1].errorMessage ?? '',
+      type: fieldValidationResults[0].errorMessage ?? "",
+      name: fieldValidationResults[1].errorMessage ?? ""
     }
-  }
+  };
 };

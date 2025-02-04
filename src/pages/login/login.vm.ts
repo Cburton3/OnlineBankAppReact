@@ -1,19 +1,19 @@
 export interface Credentials {
-    user: string;
-    password: string;
-};
+  user: string;
+  password: string;
+}
 
 export const createEmptyCredentials = (): Credentials => ({
-    user: '',
-    password: '',
+  user: "",
+  password: ""
 });
 
 export interface CredentialsFormErrors {
-    user: string;
-    password: string;
+  user: string;
+  password: string;
 }
 
-export const createEmptyCredentialsFormErrors = () : CredentialsFormErrors => ({//re the ({}) are to return an obj literal-wthout the () you just return the fx body
-    user: '',
-    password: '',
-})
+export const createEmptyCredentialsFormErrors = (): CredentialsFormErrors => ({
+  user: "",
+  password: ""
+});

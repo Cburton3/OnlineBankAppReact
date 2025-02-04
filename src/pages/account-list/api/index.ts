@@ -1,2 +1,2 @@
-export * from './account-list.api';
-export * from './account-list.api-model';
+export * from "./account-list.api";
+export * from "./account-list.api-model";

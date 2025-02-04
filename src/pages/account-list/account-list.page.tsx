@@ -1,7 +1,5 @@
-// import { appRoutes } from "@/core/router";
 import { AppLayout } from "@/layouts";
 import React from "react";
-// import { generatePath, Link } from "react-router-dom";
 import { AccountVm } from "./account-list.vm";
 import classes from "./account-list.page.module.css";
 import { AccountListTableComponent } from "./components";
@@ -35,14 +33,13 @@ import { Link } from "react-router-dom";
 // ];
 
 export const AccountListPage: React.FC = () => {
-  const [accountList, setAccountList] = React.useState<AccountVm[]>([]); //accountList holds initial data (current state). put 'mockAccountListData' inside () also ttake out useeffect for mock and get rid of setAcctounList
+  const [accountList, setAccountList] = React.useState<AccountVm[]>([]);
 
   React.useEffect(() => {
-    //we need to use use effect here as we are acccessing shit outside of the component scope
     getAccountList().then((result) =>
-      setAccountList(mapAccountListFromApiToVm(result))//the maps makes it readable to our fx and the set accountlist upates the accoutn list with the results
+      setAccountList(mapAccountListFromApiToVm(result))
     );
-  }, []); //teh empty [] so that exe only once
+  }, []);
 
   return (
     <AppLayout>
@@ -50,31 +47,13 @@ export const AccountListPage: React.FC = () => {
         <div className={classes.headerContainer}>
           <h1>My Accounts</h1>
           <button>
-            <Link to={appRoutes.createAccount}>Add New Account</Link></button>
+            <Link to={appRoutes.createAccount}>Add New Account</Link>
+          </button>
         </div>
         <AccountListTableComponent
-          accountList={accountList} //first accountList comes from table component where there is an interface with props
+          accountList={accountList}
         ></AccountListTableComponent>
-        {/* accountList here is the CURRENT state var  declared in parent and is being passe as a prop to the table component
-        The parent component (AccountListPage) is passing the accountList state as a prop to the AccountListTableComponent child component. */}
       </div>
     </AppLayout>
   );
 };
-
-{
-  /*
-
-        <Link to={generatePath(appRoutes.transactions, { id: 1 })}>
-          Transactions of account 1
-        </Link>
-        {/* <Link to={appRoutes.transactions }>Transactions of account 1</Link> //here we have to use generate path inorder to concat the id into the url of the directory }
-        <br />
-        <Link to={appRoutes.transfer}>Transfer</Link>
-        <br />
-        <Link to={generatePath(appRoutes.transferFromAcccount, { id: 1 })}>
-          Transfers from account 1
-        </Link>
-      
-*/
-}
